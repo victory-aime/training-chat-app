@@ -10,7 +10,7 @@ export const ColorType = {
   white: '#FFFFFF',
   red: '#ec2f4e',
   green: '#3bdd77',
-  primary: '#1A3C8A',
+  primary: '#002db3',
   secondary: '#fdc91e',
   inactiveColor: '#feeff5',
   light: '#FFFFFF',

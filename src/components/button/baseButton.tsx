@@ -1,14 +1,21 @@
-import React, {FC} from 'react';
-import {Button, Spinner} from 'native-base';
-import {CustomButtomProps} from './interface/customButton';
-import {ButtonSizes, ButtonVariants} from './constants/customButtonTypes';
-import {ColorType} from '../../theme/variables.ts';
+import React, { FC } from 'react';
+import { Button, Spinner } from 'native-base';
+import { ColorType } from '_theme/variables';
+import {
+  ButtonIconPosition,
+  ButtonSizes,
+  ButtonVariants,
+} from './constants/button.types';
+import { ButtonProps } from './interface/button';
+import { BaseText, TextVariant } from '_components/baseText/baseText.tsx';
 
-const BaseButton: FC<CustomButtomProps> = ({
+const BaseButton: FC<ButtonProps> = ({
+  title,
   isLoading = false,
   isDisabled = false,
   size = ButtonSizes.Small,
   variant = ButtonVariants.SOLID,
+  iconPosition = ButtonIconPosition.Left,
   renderIcon,
   children,
   ...rest
@@ -27,9 +34,28 @@ const BaseButton: FC<CustomButtomProps> = ({
       variant={variant}
       height={size}
       borderColor={borderColor}
-      borderRadius={12}
-      _pressed={{backgroundColor: 'transparent'}}>
-      {isLoading ? <Spinner /> : children}
+      borderRadius={'7px'}
+      padding={'5px'}
+      leftIcon={iconPosition === ButtonIconPosition.Left ? icon : <></>}
+      rightIcon={iconPosition === ButtonIconPosition.Right ? icon : <></>}
+      _pressed={{ backgroundColor: 'transparent' }}>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <>
+          {title ? (
+            <BaseText
+              color={
+                variant === ButtonVariants.SOLID ? 'white' : 'secondary.500'
+              }
+              variant={TextVariant.M}>
+              {title}
+            </BaseText>
+          ) : (
+            children
+          )}
+        </>
+      )}
     </Button>
   );
 };

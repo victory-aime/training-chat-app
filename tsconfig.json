@@ -1,3 +1,31 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "types": ["jest", "node"],
+    "baseUrl": "./",
+    "paths": {
+      "_assets/*": ["src/assets/*"],
+      "_components/*": ["src/components/*"],
+      "_hooks/*": ["src/hooks/*"],
+      "_locales/*": ["src/locales/*"],
+      "_constants/*": ["src/constants/*"],
+      "_navigation/*": ["src/navigation/*"],
+      "_screens/*": ["src/screens/*"],
+      "_store/*": ["src/store/*"],
+      "_providers/*": ["src/providers/*"],
+      "_theme/*": ["src/theme/*"],
+      "_utils/*": ["src/utils/*"],
+      "_types/*": ["src/types/*"]
+    }
+  },
+  "include": [
+    "./src/**/*",
+    "index.d.ts",
+    ".eslintrc.js",
+    "jest.setup.js",
+    "jest.config.js",
+    "babel.config.js",
+    "index.js",
+    "types"
+  ]
 }
