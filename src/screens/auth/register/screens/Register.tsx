@@ -12,8 +12,10 @@ import { TypedNavigation } from '_utils/typed.navigation.utils';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Banner from '_screens/auth/components/Banner.tsx';
 import { styles } from '_screens/auth/styles/styles.ts';
+import { useTranslation } from 'react-i18next';
 
 const Register = () => {
+  const { t } = useTranslation();
   const formikRef = useRef<FormikContextType<any>>(null);
   const navigation = TypedNavigation<AuthRouteParams>();
   return (
@@ -21,10 +23,10 @@ const Register = () => {
       <Banner />
       <BaseContainer>
         <View style={styles.header}>
-          <BaseText variant={TextVariant.L}>
-            Create an account to this application
+          <BaseText variant={TextVariant.H3}>
+            {t('FORMS.AUTH.SIGN_UP.TITLE')}
           </BaseText>
-          <BaseText>description create account</BaseText>
+          <BaseText>{t('FORMS.AUTH.SIGN_UP.DESCRIPTION')}</BaseText>
         </View>
         <ScrollView
           contentContainerStyle={[styles.form]}
@@ -45,50 +47,52 @@ const Register = () => {
                   <FormTextInput
                     required
                     name={'name'}
-                    placeholder={'name'}
+                    placeholder={'FORMS.AUTH.LABELS.NAME'}
                     value={values.name}
                     InputLeftElement={<></>}
                   />
                   <FormTextInput
                     required
                     name={'firstName'}
-                    placeholder={'firstName'}
+                    placeholder={'FORMS.AUTH.LABELS.FIRST_NAME'}
                     value={values.firstName}
                     InputLeftElement={<></>}
                   />
                   <FormTextInput
                     required
                     name={'email'}
+                    placeholder={'FORMS.AUTH.LABELS.EMAIL'}
                     value={values.email}
-                    placeholder={'email'}
+                    InputLeftElement={<></>}
                   />
                   <FormTextInput
                     required
                     name={'phone'}
                     value={values.phone}
-                    placeholder={'phone'}
+                    placeholder={'FORMS.AUTH.LABELS.PHONE_NUMBER'}
                   />
                   <FormTextInput
                     required
                     type={'password'}
-                    name={'password'}
+                    name={'FORMS.AUTH.LABELS.PASSWORD'}
                     value={values.password}
                     placeholder={'password'}
                   />
                   <BaseButton
                     onPress={() => handleSubmit()}
-                    title={'COMMON.SIGN_UP'}
+                    title={'COMMON.CREATE_ACCOUNT'}
                     size={ButtonSizes.Large}
                   />
-                  <View style={styles.signUpContainer}>
-                    <TouchableWithoutFeedback
-                      onPress={() => navigation.goBack()}>
-                      <BaseText>
-                        Vous avez deja un compte?{' '}
-                        <BaseText color={'primary.500'}>SignIn</BaseText>
+                  <TouchableWithoutFeedback
+                    style={styles.signUpContainer}
+                    onPress={() => navigation.goBack()}>
+                    <BaseText>
+                      {t('FORMS.AUTH.LABELS.ALREADY_ACCOUNT')}{' '}
+                      <BaseText color={'primary.500'}>
+                        {t('FORMS.AUTH.LABELS.BTN_SIGN_IN')}
                       </BaseText>
-                    </TouchableWithoutFeedback>
-                  </View>
+                    </BaseText>
+                  </TouchableWithoutFeedback>
                 </>
               );
             }}

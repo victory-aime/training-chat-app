@@ -6,7 +6,7 @@ import {
   TextWeight,
 } from '_components/baseText/baseText';
 import { Formik, FormikContextType } from 'formik';
-import FormTextInput from '_components/formInput/formInput.tsx';
+import FormTextInput from '_components/formInput/formInput';
 import BaseButton from '_components/button/baseButton';
 import { ButtonSizes } from '_components/button/constants/button.types';
 import BaseContainer from '_components/baseContainer/baseContainer';
@@ -19,7 +19,9 @@ import { TypedNavigation } from '_utils/typed.navigation.utils';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { styles } from '../../styles/styles';
 import Banner from '_screens/auth/components/Banner.tsx';
+import { useTranslation } from 'react-i18next';
 const Login = () => {
+  const { t } = useTranslation();
   const formikRef = useRef<FormikContextType<any>>(null);
   const navigation = TypedNavigation<AuthRouteParams>();
   return (
@@ -28,28 +30,28 @@ const Login = () => {
       <BaseContainer>
         <View style={styles.header}>
           <BaseText variant={TextVariant.H3}>
-            Welcome to your application
+            {t('FORMS.AUTH.SIGN_IN.TITLE')}
           </BaseText>
-          <BaseText>Welcome to your application</BaseText>
+          <BaseText>{t('FORMS.AUTH.SIGN_IN.DESCRIPTION')}</BaseText>
         </View>
         <Formik
           initialValues={{ email: '', password: '' }}
           onSubmit={() => {}}
           innerRef={formikRef}>
-          {({ values, errors, handleSubmit }) => {
+          {({ values, handleSubmit }) => {
             return (
               <View style={styles.form}>
                 <FormTextInput
                   required
                   name={'email'}
-                  placeholder={'email'}
+                  placeholder={'FORMS.AUTH.LABELS.EMAIL'}
                   value={values.email}
                   InputLeftElement={<></>}
                 />
                 <FormTextInput
                   required
                   type={'password'}
-                  name={'password'}
+                  name={'FORMS.AUTH.LABELS.PASSWORD'}
                   value={values.password}
                   placeholder={'password'}
                 />
@@ -63,19 +65,25 @@ const Login = () => {
                     variant={TextVariant.M}
                     weight={TextWeight.Bold}
                     color={'primary.500'}>
-                    Forgot password?
+                    {t('FORMS.AUTH.LABELS.FORGOT_PASSWORD')}
                   </BaseText>
                 </TouchableOpacity>
-                <BaseButton title={'COMMON.LOG_IN'} size={ButtonSizes.Large} />
-                <View style={styles.signUpContainer}>
-                  <TouchableWithoutFeedback
-                    onPress={() => navigation.navigate(AuthRoutes.SIGN_UP)}>
-                    <BaseText>
-                      Vous n'avez pas de compte?{' '}
-                      <BaseText color={'primary.500'}>SignUp</BaseText>
+                <BaseButton
+                  onPress={() => handleSubmit()}
+                  title={'COMMON.LOGIN'}
+                  size={ButtonSizes.Large}
+                />
+
+                <TouchableWithoutFeedback
+                  style={styles.signUpContainer}
+                  onPress={() => navigation.navigate(AuthRoutes.SIGN_UP)}>
+                  <BaseText>
+                    {t('FORMS.AUTH.LABELS.NO_ACCOUNT')}{' '}
+                    <BaseText color={'primary.500'}>
+                      {t('FORMS.AUTH.LABELS.BTN_SIGN_UP')}
                     </BaseText>
-                  </TouchableWithoutFeedback>
-                </View>
+                  </BaseText>
+                </TouchableWithoutFeedback>
               </View>
             );
           }}

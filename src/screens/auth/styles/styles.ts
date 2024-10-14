@@ -16,5 +16,7 @@ export const styles = StyleSheet.create({
   header: { alignItems: 'center', marginTop: 25, gap: 5 },
   form: { marginTop: 50, gap: 30 },
   forgotPassword: { alignItems: 'center', justifyContent: 'center' },
-  signUpContainer: { alignItems: 'center', justifyContent: 'center' },
+  signUpContainer: {
+    alignItems: 'center',
+  },
 });

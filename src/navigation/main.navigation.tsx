@@ -9,7 +9,7 @@ const RootStack = createNativeStackNavigator<AppNavigatorParams>();
 const AppMainNavigation = () => {
   return (
     <RootStack.Navigator screenOptions={{ headerShown: false }}>
-      {false ? (
+      {true ? (
         <RootStack.Screen
           name={AppRoute.ROOT}
           component={AppBottomTabNavigator}

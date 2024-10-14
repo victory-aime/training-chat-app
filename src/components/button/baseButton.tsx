@@ -8,6 +8,7 @@ import {
 } from './constants/button.types';
 import { ButtonProps } from './interface/button';
 import { BaseText, TextVariant } from '_components/baseText/baseText.tsx';
+import { useTranslation } from 'react-i18next';
 
 const BaseButton: FC<ButtonProps> = ({
   title,
@@ -20,6 +21,7 @@ const BaseButton: FC<ButtonProps> = ({
   children,
   ...rest
 }) => {
+  const { t } = useTranslation();
   const icon = renderIcon ? renderIcon() : <></>;
   const borderColor =
     variant === ButtonVariants.OUTLINE
@@ -49,7 +51,7 @@ const BaseButton: FC<ButtonProps> = ({
                 variant === ButtonVariants.SOLID ? 'white' : 'secondary.500'
               }
               variant={TextVariant.M}>
-              {title}
+              {t(title)}
             </BaseText>
           ) : (
             children

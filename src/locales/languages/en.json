@@ -1,0 +1,37 @@
+{
+  "FORMS": {
+    "AUTH": {
+      "SIGN_UP": {
+        "TITLE": "Title",
+        "DESCRIPTION": "description for sign up screens"
+      },
+      "SIGN_IN": {
+        "TITLE": "Title",
+        "DESCRIPTION": "description for sign in screens"
+      },
+      "FORGOT_PASSWORDS": {
+        "TITLE": "Title",
+        "DESCRIPTION": "A message with verification code was sent to your mobile phone."
+      },
+      "LABELS": {
+        "NAME": "Name",
+        "FIRST_NAME": "First name",
+        "PHONE_NUMBER": "Phone number",
+        "EMAIL": "Email",
+        "PASSWORD": "Password",
+        "FORGOT_PASSWORD": "Forgot Password",
+        "NO_ACCOUNT": "Don't have an account?",
+        "ALREADY_ACCOUNT": "Already have an account?",
+        "BTN_SIGN_UP": "Sign up",
+        "BTN_SIGN_IN": "Sign in"
+      }
+    }
+  },
+  "COMMON": {
+    "SEND": "Send",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "CREATE_ACCOUNT": "Create Account",
+    "GO_BACK": "Go back"
+  }
+}

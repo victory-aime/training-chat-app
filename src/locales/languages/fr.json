@@ -1,0 +1,42 @@
+{
+  "TAB_BAR": {
+    "DASHBOARD": "Accueil",
+    "NOTIFICATION": "Notification",
+    "SETTINGS": "Paramètres"
+  },
+  "FORMS": {
+    "AUTH": {
+      "SIGN_UP": {
+        "TITLE": "Titre",
+        "DESCRIPTION": "description des écrans d'inscription"
+      },
+      "SIGN_IN": {
+        "TITLE": "Titre",
+        "DESCRIPTION": "description des écrans de connexion"
+      },
+      "FORGOT_PASSWORD": {
+        "TITLE": "Titre",
+        "DESCRIPTION": "Un message avec le code de vérification a été envoyé sur votre téléphone mobile."
+      },
+      "LABELS": {
+        "NAME": "Nom",
+        "FIRST_NAME": "Prénom",
+        "PHONE_NUMBER": "Numéro de téléphone",
+        "EMAIL": "E-mail",
+        "PASSWORD": "Mot de passe",
+        "FORGOT_PASSWORD": "Mot de passe oublié?",
+        "NO_ACCOUNT": "Vous n'avez pas de compte?",
+        "ALREADY_ACCOUNT": "Vous avez deja un compte?",
+        "BTN_SIGN_UP": "Creer en un",
+        "BTN_SIGN_IN": "Connexion"
+      }
+    }
+  },
+  "COMMON": {
+    "SEND": "Envoyer",
+    "LOGIN": "Se connecter",
+    "LOGOUT": "Déconnexion",
+    "CREATE_ACCOUNT": "Créer un compte",
+    "GO_BACK": "Retour"
+  }
+}

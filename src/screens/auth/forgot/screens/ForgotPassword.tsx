@@ -12,8 +12,10 @@ import { TypedNavigation } from '_utils/typed.navigation.utils';
 import { ArrowBackIcon } from 'native-base';
 import Banner from '_screens/auth/components/Banner.tsx';
 import { styles } from '_screens/auth/styles/styles.ts';
+import { useTranslation } from 'react-i18next';
 
 const ForgotPassword = () => {
+  const { t } = useTranslation();
   const formikRef = useRef<FormikContextType<any>>(null);
   const navigation = TypedNavigation<AuthRouteParams>();
   return (
@@ -22,9 +24,11 @@ const ForgotPassword = () => {
 
       <BaseContainer>
         <View style={styles.header}>
-          <BaseText variant={TextVariant.L}>Forgot Password</BaseText>
+          <BaseText variant={TextVariant.L}>
+            {t('FORMS.AUTH.FORGOT_PASSWORD.TITLE')}
+          </BaseText>
           <BaseText variant={TextVariant.S}>
-            A message with verification code was sent to your mobile phone.
+            {t('FORMS.AUTH.FORGOT_PASSWORD.DESCRIPTION')}
           </BaseText>
         </View>
         <ScrollView
@@ -42,7 +46,7 @@ const ForgotPassword = () => {
                   <FormTextInput
                     required
                     name={'email'}
-                    placeholder={'email'}
+                    placeholder={'FORMS.AUTH.LABELS.EMAIL'}
                     value={values.name}
                     InputLeftElement={<></>}
                   />

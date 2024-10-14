@@ -1,8 +1,9 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {MainTabRoute} from './routes/app.routes.ts';
-import {MainTabRouteParams} from '../types/navigation';
-import {tabPrivateRoute} from './constants/private.routes.ts';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { MainTabRoute } from './routes/app.routes';
+import { MainTabRouteParams } from '_types/navigation';
+import { tabPrivateRoute } from './constants/private.routes';
+import { ColorType } from '_theme/variables.ts';
 
 const AppBottomTab = createBottomTabNavigator<MainTabRouteParams>();
 
@@ -12,12 +13,12 @@ export const AppBottomTabNavigator = () => {
       initialRouteName={MainTabRoute.CHAT}
       screenOptions={() => ({
         tabBarHideOnKeyboard: true,
-        tabBarShowLabel: false,
-        tabBarActiveTintColor: 'white',
-        //tabBarInactiveTintColor: hexToRGB(Colors.white, 0.5),
+        //tabBarShowLabel: false,
+        tabBarActiveTintColor: ColorType.primary,
+        tabBarInactiveTintColor: ColorType.grayScale,
         tabBarStyle: {},
       })}
-      safeAreaInsets={{bottom: 20}}>
+      safeAreaInsets={{ bottom: 20 }}>
       {tabPrivateRoute.map((obj, index) => {
         const title = obj.title || '';
         return (
@@ -28,8 +29,9 @@ export const AppBottomTabNavigator = () => {
             options={{
               title,
               unmountOnBlur: true,
-              tabBarIcon: ({color, size}) =>
-                obj.icon && obj.icon({fill: color, width: size, height: size}),
+              tabBarIcon: ({ color, size }) =>
+                obj.icon &&
+                obj.icon({ fill: color, width: size, height: size }),
             }}
           />
         );

@@ -53,7 +53,6 @@ const FormTextInput = ({
   const fieldProps: Partial<TextInputProps> = {
     status: localErrorMsg !== '' || fieldError ? 'danger' : 'basic',
   };
-
   const isPassword = type === 'password';
   const [secureTextEntry, setSecureTextEntry] = useState(isPassword);
 
@@ -62,7 +61,7 @@ const FormTextInput = ({
       {label && (
         <View mb={'10px'}>
           <BaseText variant={TextVariant.M} weight={TextWeight.Regular}>
-            {label}
+            {t(label)}
             {required && <Text color={'red.500'}> * </Text>}
           </BaseText>
         </View>
@@ -80,7 +79,7 @@ const FormTextInput = ({
           formContext.setFieldValue(name, val);
           onChangeText?.(val);
         }}
-        placeholder={placeholder}
+        placeholder={t(placeholder ?? '')}
         backgroundColor={'light.50'}
         borderRadius={'7px'}
         size={'lg'}

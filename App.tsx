@@ -6,13 +6,14 @@
  */
 
 import React from 'react';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {NavigationContainer} from '@react-navigation/native';
-import {NativeBaseProvider} from 'native-base';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {NetworkProvider} from '_providers/NetworkProvider';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
+import { NativeBaseProvider } from 'native-base';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { NetworkProvider } from '_providers/NetworkProvider';
 import AppMainNavigation from '_navigation/main.navigation';
 import customTheme from '_theme/customTheme.tsx';
+import I18nProvider from '_locales/i18n.provider.tsx';
 
 function App(): React.JSX.Element {
   return (
@@ -21,7 +22,9 @@ function App(): React.JSX.Element {
         <SafeAreaProvider>
           <NavigationContainer>
             <NetworkProvider>
-              <AppMainNavigation />
+              <I18nProvider>
+                <AppMainNavigation />
+              </I18nProvider>
             </NetworkProvider>
           </NavigationContainer>
         </SafeAreaProvider>
