@@ -1,13 +1,14 @@
-import {NavigatorScreenParams} from '@react-navigation/core';
+import { NavigatorScreenParams } from '@react-navigation/core';
 import {
   AppRoute,
   MainRoute,
   MainTabRoute,
 } from '../navigation/routes/app.routes';
+import { AuthRouteParams } from '_screens/auth/navigation/auth.routes.ts';
 
 export type AppNavigatorParams = {
   [AppRoute.ROOT]: NavigatorScreenParams<MainNavigatorParams>;
-  [AppRoute.AUTH]: undefined;
+  [AppRoute.AUTH]: NavigatorScreenParams<AuthRouteParams>;
 };
 
 export type MainNavigatorParams = {

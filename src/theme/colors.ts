@@ -4,18 +4,14 @@
  * Define color, hex color, etc. here instead of duplicating them throughout the components.
  * That allows to change them more easily later on.
  */
-
-import {theme} from 'native-base';
-
-const colors = {
-  ...theme.colors,
+const colors: { [color: string]: { [opacity: number]: string } } = {
   primary: {
     50: '#5081f2',
     100: '#3269e8',
     200: '#2055d3',
     300: '#204aab',
     400: '#1a3c8a',
-    500: '#1b3571',
+    500: '#002db3',
     600: '#1a2d5b',
     700: '#172545',
     800: '#131c32',
@@ -47,7 +43,9 @@ const colors = {
     800: '#a99386',
     900: '#a68572',
   },
-
+  light: {
+    50: '#F3F5F7',
+  },
   danger: {
     50: '#ffd2da',
     100: '#ffaab8',
@@ -93,13 +91,16 @@ const colors = {
  * The opacity value (0 to 100).
  * @returns The RGBA color string with the specified opacity.
  */
-const getColorWithOpacity = (hexColor: string, opacity: number): string => {
-  opacity = Math.max(0, Math.min(1, opacity));
-  hexColor = hexColor?.replace('#', '');
-  const r = parseInt(hexColor?.slice(0, 2), 16);
-  const g = parseInt(hexColor?.slice(2, 4), 16);
-  const b = parseInt(hexColor?.slice(4, 6), 16);
-  return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+
+const hexToRGB = (color: string, alpha?: number, op?: number) => {
+  const hex = getColor(color, op);
+  const r = parseInt(hex?.slice(1, 3), 16);
+  const g = parseInt(hex?.slice(3, 5), 16);
+  const b = parseInt(hex?.slice(5, 7), 16);
+
+  return `rgba(${r},${g},${b}${alpha ? `, ${alpha}` : ''})`;
 };
 
-export {colors, getColorWithOpacity};
+const getColor = (color = 'primary', opacity = 500) => colors[color][opacity];
+
+export { colors, hexToRGB, getColor };

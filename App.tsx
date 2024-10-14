@@ -6,20 +6,23 @@
  */
 
 import React from 'react';
-import {Text} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
 import {NativeBaseProvider} from 'native-base';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import AppMainNavigation from './src/navigation/main.navigation.tsx';
+import {NetworkProvider} from '_providers/NetworkProvider';
+import AppMainNavigation from '_navigation/main.navigation';
+import customTheme from '_theme/customTheme.tsx';
 
 function App(): React.JSX.Element {
   return (
     <GestureHandlerRootView>
-      <NativeBaseProvider>
+      <NativeBaseProvider theme={customTheme}>
         <SafeAreaProvider>
           <NavigationContainer>
-            <AppMainNavigation />
+            <NetworkProvider>
+              <AppMainNavigation />
+            </NetworkProvider>
           </NavigationContainer>
         </SafeAreaProvider>
       </NativeBaseProvider>

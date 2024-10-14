@@ -1,11 +1,20 @@
 import {extendTheme} from 'native-base';
 import {colors} from './colors';
+import FontSizeType from '_theme/fontSize.ts';
+import LineHeightType from '_theme/lineHeight.ts';
+import FontFamilyType from '_theme/fontFamily.ts';
 
 const customTheme = extendTheme({
   colors,
-  fonts: {},
-  fontSizes: {},
-  lineHeights: {},
+  primary: FontFamilyType.primary,
+  primaryMedium: FontFamilyType.primaryMedium,
+  primarySemiBold: FontFamilyType.primarySemiBold,
+  primaryBold: FontFamilyType.primaryBold,
+  primaryExtraBold: FontFamilyType.primaryExtraBold,
+  primaryBlack: FontFamilyType.primaryBlack,
+  primaryLight: FontFamilyType.primaryLight,
+  fontSizes: FontSizeType,
+  lineHeights: LineHeightType,
   components: {
     Button: {
       defaultProps: {
