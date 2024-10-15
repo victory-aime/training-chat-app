@@ -1,4 +1,9 @@
 {
+  "TAB_BAR": {
+    "DASHBOARD": "Home",
+    "NOTIFICATION": "Notification",
+    "SETTINGS": "Settings"
+  },
   "FORMS": {
     "AUTH": {
       "SIGN_UP": {

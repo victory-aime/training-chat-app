@@ -4,7 +4,7 @@ import {
   AuthRouteParams,
   AuthRoutes,
 } from '_screens/auth/navigation/auth.routes.ts';
-import { Login, ForgotPassword, Register } from '_screens/auth';
+import { Login, ForgotPassword, Register } from '_screens/auth/screens';
 
 const AuthStack = createNativeStackNavigator<AuthRouteParams>();
 

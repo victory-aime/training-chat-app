@@ -4,20 +4,20 @@ import {
   BaseText,
   TextVariant,
   TextWeight,
-} from '_components/baseText/baseText';
+} from '_components/baseText/baseText.tsx';
 import { Formik, FormikContextType } from 'formik';
-import FormTextInput from '_components/formInput/formInput';
-import BaseButton from '_components/button/baseButton';
-import { ButtonSizes } from '_components/button/constants/button.types';
-import BaseContainer from '_components/baseContainer/baseContainer';
-import { ColorType } from '_theme/variables';
+import FormTextInput from '_components/formInput/formInput.tsx';
+import BaseButton from '_components/button/baseButton.tsx';
+import { ButtonSizes } from '_components/button/constants/button.types.ts';
+import BaseContainer from '_components/baseContainer/baseContainer.tsx';
+import { ColorType } from '_theme/variables.ts';
 import {
   AuthRouteParams,
   AuthRoutes,
-} from '_screens/auth/navigation/auth.routes';
-import { TypedNavigation } from '_utils/typed.navigation.utils';
+} from '_screens/auth/navigation/auth.routes.ts';
+import { TypedNavigation } from '_utils/typed.navigation.utils.ts';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import { styles } from '../../styles/styles';
+import { styles } from '../styles/styles.ts';
 import Banner from '_screens/auth/components/Banner.tsx';
 import { useTranslation } from 'react-i18next';
 const Login = () => {

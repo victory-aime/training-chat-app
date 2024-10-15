@@ -16,6 +16,7 @@ export type MainNavigatorParams = {
 };
 
 export type MainTabRouteParams = {
+  [MainTabRoute.DASHBOARD]: undefined;
   [MainTabRoute.CHAT]: undefined;
   [MainTabRoute.NOTIFICATION]: undefined;
   [MainTabRoute.SETTINGS]: undefined;

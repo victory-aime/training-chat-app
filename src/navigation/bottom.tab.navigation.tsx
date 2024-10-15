@@ -4,23 +4,24 @@ import { MainTabRoute } from './routes/app.routes';
 import { MainTabRouteParams } from '_types/navigation';
 import { tabPrivateRoute } from './constants/private.routes';
 import { ColorType } from '_theme/variables.ts';
+import { useTranslation } from 'react-i18next';
 
 const AppBottomTab = createBottomTabNavigator<MainTabRouteParams>();
 
 export const AppBottomTabNavigator = () => {
+  const { t } = useTranslation();
   return (
     <AppBottomTab.Navigator
-      initialRouteName={MainTabRoute.CHAT}
+      initialRouteName={MainTabRoute.DASHBOARD}
       screenOptions={() => ({
         tabBarHideOnKeyboard: true,
-        //tabBarShowLabel: false,
+        headerShown: false,
         tabBarActiveTintColor: ColorType.primary,
         tabBarInactiveTintColor: ColorType.grayScale,
-        tabBarStyle: {},
       })}
       safeAreaInsets={{ bottom: 20 }}>
       {tabPrivateRoute.map((obj, index) => {
-        const title = obj.title || '';
+        const title = t(obj.title || '');
         return (
           <AppBottomTab.Screen
             key={obj.title + index}

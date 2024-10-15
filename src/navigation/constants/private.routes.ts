@@ -1,9 +1,10 @@
 import { SvgProps } from 'react-native-svg';
 import React from 'react';
-import { MainTabRouteParams } from '../../types/navigation';
-import { MainTabRoute } from '../routes/app.routes.ts';
-import ChatScreen from '../../screens/chat/screens/Chat.tsx';
-import { BellIcon, ChatIcon, SettingIcon } from '../../assets/svg';
+import { MainTabRouteParams } from '_types/navigation';
+import { MainTabRoute } from '../routes/app.routes';
+import ChatScreen from '_screens/chat/screens/Chat';
+import { BellIcon, ChatIcon, HomeIcon, SettingIcon } from '_assets/svg';
+import DashboardNavigator from '_screens/dashboard/navigation/DashboardNavigator';
 
 export interface BottomTabItem {
   title: string;
@@ -16,10 +17,10 @@ export interface BottomTabItem {
 export const tabPrivateRoute: BottomTabItem[] = [
   {
     title: 'TAB_BAR.DASHBOARD',
-    route: MainTabRoute.CHAT,
-    viewComponent: ChatScreen,
+    route: MainTabRoute.DASHBOARD,
+    viewComponent: DashboardNavigator,
     icon: (style?: SvgProps) => {
-      return React.createElement(ChatIcon, { ...style });
+      return React.createElement(HomeIcon, { ...style });
     },
   },
 

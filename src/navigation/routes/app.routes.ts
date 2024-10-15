@@ -8,6 +8,7 @@ export enum MainRoute {
 }
 
 export enum MainTabRoute {
+  DASHBOARD = 'DASHBOARD',
   CHAT = 'CHAT',
   NOTIFICATION = 'NOTIFICATION',
   SETTINGS = 'SETTINGS',
